@@ -1,0 +1,18 @@
+{
+  "theme": "dark",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6.1-sol",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:@injaneity/pi-computer-use",
+    "npm:@amaster.ai/pi-browser-use",
+    "npm:@lokeraar/pi-opendesign-bridge",
+    "npm:@pi-plugins/claude-cli",
+    "git:github.com/eiei114/pi-claude-tool-schema",
+    "npm:pi-web-access",
+    "npm:@howaboua/pi-codex-conversion"
+  ],
+  "pi-lingua": {
+    "enabled": false
+  }
+}

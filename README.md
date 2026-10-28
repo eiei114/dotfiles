@@ -4,9 +4,9 @@ Machine configuration managed with [chezmoi](https://www.chezmoi.io/), based on 
 
 ## Pi configuration
 
-`dot_pi/agent/modify_settings.json` merges the managed Pi theme, default model, and standalone package list into `~/.pi/agent/settings.json`. It retains existing package entries, `deviceId`, and other local settings. The merge requires Node.js, which Pi itself requires. It does not remove unrelated packages or install packages: use the opt-in install script below. Authentication files such as `~/.pi/agent/auth.json` are never managed.
+`dot_pi/agent/settings.json` is the complete source of truth for `~/.pi/agent/settings.json`. Applying it replaces the target file, including any local-only entries and `deviceId`; back up existing settings and review `chezmoi diff` first. Machine-specific state and credentials such as `~/.pi/agent/auth.json` are not managed. Pi reads changes on restart.
 
-Existing settings must be valid JSON; the merge fails rather than replacing invalid data. Run `chezmoi diff` before applying. Pi reads changes on restart.
+Package declarations do not replace the opt-in package installation steps below.
 
 ## TAKT configuration
 
