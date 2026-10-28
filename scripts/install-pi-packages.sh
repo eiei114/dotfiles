@@ -9,3 +9,4 @@ pi install npm:@pi-plugins/claude-cli
 pi install git:github.com/eiei114/pi-claude-tool-schema
 pi install npm:pi-web-access
 pi install npm:@howaboua/pi-codex-conversion
+pi install npm:@howaboua/pi-codex-imagegen
