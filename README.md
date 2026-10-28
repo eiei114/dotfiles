@@ -1,6 +1,6 @@
 # dotfiles
 
-Machine configuration managed with [chezmoi](https://www.chezmoi.io/). Start with TAKT runtime settings; add other configuration deliberately.
+Machine configuration managed with [chezmoi](https://www.chezmoi.io/), based on the MIT-licensed [chezmoi dotfiles template](https://github.com/chezmoi/dotfiles). Start with TAKT runtime settings; add other configuration deliberately.
 
 ## TAKT configuration
 
@@ -18,7 +18,9 @@ Authenticate on each machine separately (`codex login`, `claude auth login`, and
 
 ## Preview and apply
 
-Install chezmoi using its official instructions. To try this local checkout as a source without modifying existing settings first:
+`./install.sh` follows the official template: it installs chezmoi if needed and immediately runs `chezmoi init --apply` against this checkout. **It can overwrite existing managed files.** Back up existing settings and preview the diff before running it; inspect the script and downloaded installer first.
+
+For a safer preview, install chezmoi using its official instructions. To try this local checkout as a source without modifying existing settings first:
 
 ```sh
 chezmoi --source "$HOME/Projects/dotfiles" diff

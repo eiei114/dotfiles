@@ -1,0 +1,6 @@
+.github/
+.gitignore
+install.sh
+LICENSE
+README.md
+scripts/

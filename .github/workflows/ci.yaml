@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  clone-and-install:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+      env:
+        CODESPACES: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./install.sh
+      - name: chezmoi data
+        run: '"$HOME/.local/bin/chezmoi" data'
+      - name: Check managed files
+        run: |
+          test -f "$HOME/.takt/runtime.yaml"
+          test ! -e "$HOME/README.md"
+          test ! -e "$HOME/scripts/install-pi-packages.sh"
