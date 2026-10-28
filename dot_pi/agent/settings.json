@@ -11,8 +11,5 @@
     "git:github.com/eiei114/pi-claude-tool-schema",
     "npm:pi-web-access",
     "npm:@howaboua/pi-codex-conversion"
-  ],
-  "pi-lingua": {
-    "enabled": false
-  }
+  ]
 }
