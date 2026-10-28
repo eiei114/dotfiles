@@ -1,0 +1,9 @@
+# Never track credentials, private keys, logs, or machine-local state.
+.env
+.env.*
+*.pem
+*.key
+*credentials*
+auth.json
+node_modules/
+.DS_Store

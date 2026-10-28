@@ -1,0 +1,44 @@
+version: 1
+provider:
+  defaults:
+    profile: terra-medium
+  targets:
+    internal_agents:
+      assistant:
+        profile: claude-opus
+  assignments:
+    luna-review:
+      targets:
+        internal_agents:
+          assistant:
+            profile: claude-opus
+        tags:
+          review:
+            profile: luna-max
+  profiles:
+    luna-max:
+      provider: pi
+      model: openai-codex/gpt-6-luna
+      options:
+        thinking_level: max
+        extensions:
+          - npm:@howaboua/pi-codex-conversion
+          - npm:pi-web-access
+    terra-medium:
+      provider: codex
+      model: gpt-6.1-terra
+      options:
+        reasoning_effort: medium
+    claude-opus:
+      provider: pi
+      model: claude-cli/claude-opus-5-5
+      options:
+        extensions:
+          - npm:@pi-plugins/claude-cli
+          - git:github.com/eiei114/pi-claude-tool-schema
+          - npm:pi-web-access
+    default:
+      provider: codex
+      model: gpt-6-luna
+      options:
+        reasoning_effort: xhigh
