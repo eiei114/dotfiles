@@ -2,6 +2,12 @@
 
 Machine configuration managed with [chezmoi](https://www.chezmoi.io/), based on the MIT-licensed [chezmoi dotfiles template](https://github.com/chezmoi/dotfiles). Start with TAKT runtime settings; add other configuration deliberately.
 
+## Pi configuration
+
+`dot_pi/agent/modify_settings.json` merges the managed Pi theme, default model, and standalone package list into `~/.pi/agent/settings.json`. It retains existing package entries, `deviceId`, and other local settings. The merge requires Node.js, which Pi itself requires. It does not remove unrelated packages or install packages: use the opt-in install script below. Authentication files such as `~/.pi/agent/auth.json` are never managed.
+
+Existing settings must be valid JSON; the merge fails rather than replacing invalid data. Run `chezmoi diff` before applying. Pi reads changes on restart.
+
 ## TAKT configuration
 
 `dot_takt/runtime.yaml` is the chezmoi source for `~/.takt/runtime.yaml`. It selects Codex GPT-6.1 Terra medium by default, Pi Claude CLI Opus for the assistant, and an optional `luna-review` assignment using Pi GPT-6 Luna max for review-tagged steps.
@@ -44,4 +50,4 @@ Do not commit tokens, API keys, OAuth credentials, session logs, caches, or priv
 - Terra's Codex provider has passed a minimal live response test. Pi's managed SDK did not recognize Terra.
 - Luna through Pi can respond, but web search and shell tools with the Codex adapter did not work in earlier smoke tests. Recheck after changes.
 - `claude-cli` and `pi-web-access` were verified with a minimal search after Claude CLI login. Full workflow and all tool permissions are not yet verified.
-- No bootstrap scripts are run automatically. Package sources are not version-pinned yet; review updates before use.
+- No Pi package installation scripts are run automatically. Package sources are not version-pinned yet; review updates before use.

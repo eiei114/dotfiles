@@ -1,0 +1,40 @@
+#!/bin/sh
+# chezmoi modify script: merge managed Pi settings without dropping local state.
+exec node -e '
+const fs = require("node:fs");
+const input = fs.readFileSync(0, "utf8");
+let settings;
+try {
+  settings = input.trim() ? JSON.parse(input) : {};
+  if (!settings || typeof settings !== "object" || Array.isArray(settings)) {
+    throw new Error("settings.json must contain a JSON object");
+  }
+  if (settings.packages !== undefined && !Array.isArray(settings.packages)) {
+    throw new Error("settings.json packages must be an array");
+  }
+} catch (error) {
+  console.error(`Cannot safely merge Pi settings: ${error.message}`);
+  process.exit(1);
+}
+const packages = settings.packages || [];
+const desired = [
+  "npm:@injaneity/pi-computer-use",
+  "npm:@amaster.ai/pi-browser-use",
+  "npm:@lokeraar/pi-opendesign-bridge",
+  "npm:@pi-plugins/claude-cli",
+  "git:github.com/eiei114/pi-claude-tool-schema",
+  "npm:pi-web-access",
+  "npm:@howaboua/pi-codex-conversion",
+];
+for (const source of desired) {
+  if (!packages.some((entry) => entry === source || (entry && typeof entry === "object" && entry.source === source))) {
+    packages.push(source);
+  }
+}
+settings.packages = packages;
+settings.theme = "dark";
+settings.defaultProvider = "openai-codex";
+settings.defaultModel = "gpt-6.1-sol";
+settings.defaultThinkingLevel = "high";
+process.stdout.write(`${JSON.stringify(settings, null, 2)}\n`);
+'
