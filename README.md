@@ -8,6 +8,10 @@ Machine configuration managed with [chezmoi](https://www.chezmoi.io/), based on 
 
 Package declarations do not replace the opt-in package installation steps below.
 
+## Project-specific Pi profiles
+
+Optional `ios`, `game`, and `oss` starting points live in [`pi-profiles/`](pi-profiles/README.md). They are empty until configured and are not automatically applied or installed.
+
 ## TAKT configuration
 
 `dot_takt/runtime.yaml` is the chezmoi source for `~/.takt/runtime.yaml`. It selects Codex GPT-6.1 Terra medium by default, Pi Claude CLI Opus for the assistant, and an optional `luna-review` assignment using Pi GPT-6 Luna max for review-tagged steps.
