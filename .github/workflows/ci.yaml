@@ -25,3 +25,4 @@ jobs:
           node -e 'const s = require(process.env.HOME + "/.pi/agent/settings.json"); if (!s.packages.includes("npm:@amaster.ai/pi-browser-use")) process.exit(1)'
           test ! -e "$HOME/README.md"
           test ! -e "$HOME/scripts/install-pi-packages.sh"
+          test ! -e "$HOME/claude-profiles"

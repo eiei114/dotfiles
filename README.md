@@ -12,6 +12,10 @@ Package declarations do not replace the opt-in package installation steps below.
 
 Optional `ios`, `ue5`, `oss`, and `roblox` starting points live in [`pi-profiles/`](pi-profiles/README.md). They are empty until configured and are not automatically applied or installed.
 
+## Claude Code project profiles
+
+An optional `base` starting point for a project's `.claude/settings.json` and `CLAUDE.md` lives in [`claude-profiles/`](claude-profiles/README.md). It is not automatically applied.
+
 ## TAKT configuration
 
 `dot_takt/runtime.yaml` is the chezmoi source for `~/.takt/runtime.yaml`. It selects Codex GPT-6.1 Terra medium by default, Pi Claude CLI Opus for the assistant, and an optional `luna-review` assignment using Pi GPT-6 Luna max for review-tagged steps.
