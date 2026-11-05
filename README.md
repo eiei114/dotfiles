@@ -10,7 +10,7 @@ Package declarations do not replace the opt-in package installation steps below.
 
 ## Project-specific Pi profiles
 
-Optional `ios`, `ue5`, `oss`, and `roblox` starting points live in [`pi-profiles/`](pi-profiles/README.md). They are empty until configured and are not automatically applied or installed.
+Optional `ios`, `ue5`, `oss`, `roblox`, and `charakuru` starting points live in [`pi-profiles/`](pi-profiles/README.md). They are empty until configured and are not automatically applied or installed. The `charakuru` profile carries browser-use and image-generation packages for a local Charakuru VRM kit checkout.
 
 ## Claude Code project profiles
 

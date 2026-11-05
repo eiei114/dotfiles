@@ -1,0 +1,11 @@
+{
+  "packages": [
+    "npm:@amaster.ai/pi-browser-use",
+    "npm:@howaboua/pi-codex-imagegen"
+  ],
+  "pi-browser-use": {
+    "headless": false,
+    "channel": "stable",
+    "sessionMode": "persistent"
+  }
+}
